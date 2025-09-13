@@ -99,11 +99,11 @@ The first benchmark is about inserting entries in the cache. The run variants ar
 the number of parallel threads used for insertion. The run mode is "one shot", which means each run is doing the 
 task once. The result is the runtime in seconds. 
 
-{% asset_img populateParallelOnce-1-notitle.svg 'Populate Parallel Once' benchmark result for one thread %}
+!['Populate Parallel Once' benchmark result for one thread](populateParallelOnce-1-notitle.svg)
 
-{% asset_img populateParallelOnce-2-notitle.svg 'Populate Parallel Once' benchmark result for two threads %}
+!['Populate Parallel Once' benchmark result for two threads](populateParallelOnce-2-notitle.svg)
 
-{% asset_img populateParallelOnce-4-notitle.svg 'Populate Parallel Once' benchmark result for four threads %}
+!['Populate Parallel Once' benchmark result for four threads](populateParallelOnce-4-notitle.svg)
 
 ### Reference information
 
@@ -136,7 +136,7 @@ force the GC outside the measure time interval.
 We use the benchmark above and measure the consumed Java heap space. After each benchmark iteration, a garbage collection 
 is done and the used memory in the heap is recorded.
 
-{% asset_img populateParallelOnce-memory-notitle.svg Heap memory consumption after inserting %}
+![Heap memory consumption after inserting](populateParallelOnce-memory-notitle.svg)
 
 ### Reference information
 
@@ -155,7 +155,7 @@ cache2k and Guava have the lowest measured memory consumption. Of course CHM has
  with different hit rates. The main goal is to check how different hit rations influence the 
  throughput.
 
-{% asset_img readOnly-notitle.svg 'Read Only' benchmark result for 1, 2 and 4 threads and 100, 50 and 33 percent hit ratio %}
+!['Read Only' benchmark result for 1, 2 and 4 threads and 100, 50 and 33 percent hit ratio](readOnly-notitle.svg)
 
 ### Reference information
 
@@ -177,7 +177,7 @@ Three benchmarks. "ro" doing reads only in 8 threads, "rw" doing reads and write
 in 8 threads. The cache is populated in advance  with the test data set. No eviction and no inserts happen during the 
 benchmark time. The test data size is 11k, the cache size 32k. This benchmark is almost identical to the one in caffeine.
 
-{% asset_img combinedReadWrite-notitle.svg 'Combined Read/Write' %}
+![Combined Read/Write](combinedReadWrite-notitle.svg)
 
 ### Reference information
 

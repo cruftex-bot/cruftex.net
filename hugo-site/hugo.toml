@@ -2,7 +2,11 @@ baseURL = 'http://cruftex.net'
 languageCode = 'en-us'
 title = 'cruftex.net'
 theme = 'terminal'
-paginate = 10
+uglyURLs = true
+
+# Pagination configuration
+[pagination]
+  pagerSize = 10
 
 # Site parameters
 [params]
@@ -13,7 +17,7 @@ paginate = 10
 
 # Permalinks configuration
 [permalinks]
-  posts = '/:year/:month/:day/:title.html'
+  posts = '/:year/:month/:day/:title'
 
 # Markup configuration
 [markup]
@@ -29,15 +33,15 @@ paginate = 10
 [menu]
   [[menu.main]]
     name = 'About'
-    url = '/about/'
+    url = '/about.html'
     weight = 10
   [[menu.main]]
     name = 'Posts'
-    url = '/posts/'
+    url = '/posts.html'
     weight = 20
   [[menu.main]]
     name = 'Tags'
-    url = '/tags/'
+    url = '/tags.html'
     weight = 30
 
 # RSS/Atom feed

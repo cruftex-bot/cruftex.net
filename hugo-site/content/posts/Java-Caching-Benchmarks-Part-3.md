@@ -123,7 +123,7 @@ Such code would be impacted by the operating system scheduler.
 
 Benchmark source file: [ZipfianSequenceLoadingBenchmark.java](https://github.com/cache2k/cache2k-benchmark/blob/e4cd7a8c491bf275545b3003932c2eebb69606e9/jmh-suite/src/main/java/org/cache2k/benchmark/jmh/suite/eviction/symmetrical/ZipfianSequenceLoadingBenchmark.java).
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg 'ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10' %}
+![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
 
@@ -135,7 +135,7 @@ competitor would be wrong (cache2k vs. Caffeine with 100K entries), since the be
 
 Let's look at the achieved hit rates: 
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle.svg 'ZipfianSequenceLoadingBenchmark, effective hit rate by cache size at 4 threads and Zipfian factor 10' %}
+![ZipfianSequenceLoadingBenchmark, effective hit rate by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10.dat) is available. 
 
@@ -145,7 +145,7 @@ Another benchmark is analyzed with different number of threads and CPU cores. As
 
 Let's look at the results for one, two and four cores:
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle.svg 'ZipfianSequenceLoadingBenchmark, operations per second by thread count with cache size 1M and Zipfian factor 10' %}
+![ZipfianSequenceLoadingBenchmark, operations per second by thread count with cache size 1M and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10.dat) is available. 
 
@@ -155,13 +155,13 @@ Caffeine has low performance with one or two cores but better performance with f
 
 By varying the size of Zipfian distribution we can yield different hit rates. Below chart shows the performance with different Zipfian factors:
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle.svg 'ZipfianSequenceLoadingBenchmark, operations per second by Zipfian factor with cache size 1M at 4 threads' %}
+![ZipfianSequenceLoadingBenchmark, operations per second by Zipfian factor with cache size 1M at 4 threads](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4.dat) is available. 
 
 The corresponding effective hit rates per cache are:
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle.svg 'ZipfianSequenceLoadingBenchmark, effective hit rate by Zipfian factor with cache size 1M at 4 threads' %}
+![ZipfianSequenceLoadingBenchmark, effective hit rate by Zipfian factor with cache size 1M at 4 threads](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4.dat) is available. 
 
@@ -169,7 +169,7 @@ cache2k is optimized in such a way that there will be minimal overhead at high h
  
 We also analyazed another benchmark run with the new G1 collector. Let's look at the first statistic with different collector implementation:
  
-{% asset_img G1/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg 'ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10 and G1 collector' %}
+![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10 and G1 collector](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
 
 For the above graph [Alternative Image](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
 
@@ -190,7 +190,7 @@ below changes to improve eviction efficiency and worst case runtime:
 - Adaptive threshold based on the access frequency is used to search for an eviction candidate
 - Separate clocks are used for hot and cold and the entry order in the hot working set is reshuffled according to the recent reference
  
-{% asset_img clocks.svg 'Improved Clock-Pro eviction using two separate clocks' %}
+![Improved Clock-Pro eviction using two separate clocks](clocks.svg)
  
 Nevertheless, the question of theoretical categorization of O(n) remains. However, the theoretical big-O notation means there is 
 no mathematical proof that the worst case performance is in a better big-O category. Theory gives us an indication that 
@@ -215,24 +215,24 @@ In this case a cache miss gets no extra penalty. As the effective hit rate is id
 implementations, the penalty would change the performance result by a constant factor. So in this benchmark, the performance 
 is solely determined by the sequence generator and the cache operations.
 
-{% asset_img CMS/RandomSequenceBenchmark-byHitrate-4-1M-notitle.svg 'RandomSequenceBenchmark, operations per second by hit rate at 4 threads and 1M cache size' %}
+![RandomSequenceBenchmark, operations per second by hit rate at 4 threads and 1M cache size](CMS/RandomSequenceBenchmark-byHitrate-4-1M-notitle.svg)
 For the above graph [Alternative Image](CMS/RandomSequenceBenchmark-byHitrate-4-1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmark-byHitrate-4-1M.dat) is available. 
 
 Let's also verify if the effective hit rate is on the same level:
 
-{% asset_img CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle.svg 'RandomSequenceBenchmark, effective hit rate by thread count at 4 threads and 1M cache size' %}
+![RandomSequenceBenchmark, effective hit rate by thread count at 4 threads and 1M cache size](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle.svg)
 For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M.dat) is available. 
 
 To see how the cache size impacts the performance, let's look at different cache sizes with constant thread count and hit rate:
 
-{% asset_img CMS/RandomSequenceBenchmark-bySize-4x50-notitle.svg 'RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate' %}
+![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate](CMS/RandomSequenceBenchmark-bySize-4x50-notitle.svg)
 For the above graph there is an [Alternative Image](CMS/RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmark-bySize-4x50.dat) is available. 
 
 As we can see, the performance of cache2k is similar to other cache implementations when the cache size is increased.
 
 We also analyzed a benchmark run with the new G1 garbage collector:
 
-{% asset_img G1/RandomSequenceBenchmark-bySize-4x50-notitle.svg 'RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate with G1 collector' %}
+![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate with G1 collector](G1/RandomSequenceBenchmark-bySize-4x50-notitle.svg)
 
 For the above graph [Alternative Image](G1/RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](G1/RandomSequenceBenchmark-bySize-4x50.dat) is available. 
 
@@ -267,7 +267,7 @@ Using the internal counters of cache2k, we can extract average number of entries
 This allows us to get an insight into  different eviction costs at different working
 conditions. Let's look at how different cache sizes affect the number scans:
 
-{% asset_img CMS/RandomSequenceBenchmarkScanCount-bySize-4x80-notitle.svg 'RandomSequenceBenchmark, scan count by cache size at 4 threads and 80 percent target hit rate' %}
+![RandomSequenceBenchmark, scan count by cache size at 4 threads and 80 percent target hit rate](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80-notitle.svg)
 
 For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80.dat) is available. 
 
@@ -283,7 +283,7 @@ count does not increase significantly when the cache becomes bigger.
 
 For different hit rates the scan counts look like:
 
-{% asset_img CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle.svg 'RandomSequenceBenchmark, scan count by hit rate at 4 threads and 1M cache size' %}
+![RandomSequenceBenchmark, scan count by hit rate at 4 threads and 1M cache size](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle.svg)
 
 For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M.dat) is available. 
 
@@ -293,7 +293,7 @@ With high hit rates cache2k has still less overhead than other cache libraries.
 
 Finally, we will take a look at the scan counts for the first benchmark:
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle.svg 'ZipfianSequenceLoadingBenchmark, scan count by cache size at 4 threads and Zipfian factor 10' %}
+![ZipfianSequenceLoadingBenchmark, scan count by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10.dat) is available. 
 
@@ -313,7 +313,7 @@ that the JVM reports at the end of the benchmark. This is a static measure and d
 account differences in usage when operations are ongoing. The *VmHWM* metric represents peak memory 
 consumption as reported by the operating system, thus it also includs dynamic effects like garbage collection.
 
-{% asset_img CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle.svg 'ZipfianSequenceLoadingBenchmark, memory consumption with 10M cache size at 4 threads and Zipfian factor 5' %}
+![ZipfianSequenceLoadingBenchmark, memory consumption with 10M cache size at 4 threads and Zipfian factor 5](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle.svg)
 
 For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5.dat) is available. 
 
@@ -325,7 +325,7 @@ The peak memory consumption differs more drastically. Cache2k achieves a lower p
 low allocation rates which leads to less garbage collector activity. Depending on the cache utilization, cache size
 and hit rates, the total memory consumption will differ. Here is a rather extreme case example with the G1 collector:
 
-{% asset_img G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle.svg 'ZipfianSequenceLoadingBenchmark, memory consumption with 1M cache size at 4 threads and Zipfian factor 20' %}
+![ZipfianSequenceLoadingBenchmark, memory consumption with 1M cache size at 4 threads and Zipfian factor 20](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle.svg)
 
 For the above graph [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5.dat) is available. 
 

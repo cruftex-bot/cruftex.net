@@ -169,7 +169,7 @@ We start with a complete random pattern of 1000 different values.
 
 Trace length: 3 million, Unique keys: 1000, Maximum possible hit rate: 99.97%
 
-{% asset_img traceTotalRandom1000hitrateProducts.svg 'Random Pattern hit rates comparison' %}
+![Random Pattern hit rates comparison](traceTotalRandom1000hitrateProducts.svg)
 
 The main purpose of this pattern, is to find out whether one of the implementations is cheating. Since the pattern 
 is random, every algorithm has no chance to predict what will be accessed in the future. A cache implementation can 
@@ -183,7 +183,7 @@ A trace from a OLTP workload, used by the authors of the ARC algorithm.
 
 Trace length: 914145, Unique keys: 186880, Maximum possible hit rate: 79.56%
 
-{% asset_img traceOltphitrateProducts.svg 'OLTP Trace hit rates comparison' %}
+![OLTP Trace hit rates comparison](traceOltphitrateProducts.svg)
 
 ### UmassFinancial2 Trace
 
@@ -194,7 +194,7 @@ is used. This should make the trace data more relevant to the access of objects.
 
 Trace length: 1 million, Unique keys: 102742, Maximum possible hit rate: 89.73%
 
-{% asset_img  traceUmassFinancial2hitrateProducts.svg 'UmassFinancial2 Trace hit rates comparison' %}
+![UmassFinancial2 Trace hit rates comparison](traceUmassFinancial2hitrateProducts.svg)
 
 ### UmassWebSearch1 Trace
 
@@ -207,7 +207,7 @@ The low possible hit rate is quite atypical for this trace.
 
 Trace length: 1 million, Unique keys:470248 , Maximum possible hit rate: 52.98%
 
-{% asset_img traceUmassWebSearch1hitrateProducts.svg 'UmassWebSearch1 Trace hit rates comparison' %}
+![UmassWebSearch1 Trace hit rates comparison](traceUmassWebSearch1hitrateProducts.svg)
 
 ### OrmAccessBusytime Trace
 
@@ -218,7 +218,7 @@ This trace represents requests from a Java application to an object relational m
  
 Trace length: 5 million, Unique keys: 76349, Maximum possible hit rate: 85.61%
 
-{% asset_img traceOrmAccessBusytimehitrateProducts.svg 'OrmAccessBusytime Trace hit rates comparison' %}
+![OrmAccessBusytime Trace hit rates comparison](traceOrmAccessBusytimehitrateProducts.svg)
 
 ### Web12 Trace
 
@@ -227,7 +227,7 @@ For the trace we just use integer numbers. Each unique URL is represented by one
 
 Trace length: 95607, Unique keys: 13756, Maximum possible hit rate: 85.61%
 
-{% asset_img traceWeb12hitrateProducts.svg 'Web12 Trace hit rates comparison' %}
+![Web12 Trace hit rates comparison](traceWeb12hitrateProducts.svg)
 
 ### The Zipfian Pattern
 
@@ -237,7 +237,7 @@ is a typical long-tail distribution with a head of 'hot' values and a tail of 'c
 
 Trace length: 10 million, Unique keys: 10000, Maximum possible hit rate: 99.9%
 
-{% asset_img traceZipf10khitrateProducts.svg 'Zipfian Pattern hit rates comparison' %}
+![Zipfian Pattern hit rates comparison](traceZipf10khitrateProducts.svg)
 
 ### More Graphs....
 

@@ -1,0 +1,50 @@
+baseURL = 'http://cruftex.net'
+languageCode = 'en-us'
+title = 'cruftex.net'
+theme = 'terminal'
+paginate = 10
+
+# Site parameters
+[params]
+  description = "Personal blog of Jens Wilke"
+  author = "Jens Wilke"
+  github = "https://github.com/cruftex"
+  featured_image = "/image/cruftex-logo.png"
+
+# Permalinks configuration
+[permalinks]
+  posts = '/:year/:month/:day/:title.html'
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    lineNos = false
+    style = 'github'
+    noClasses = false
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 10
+  [[menu.main]]
+    name = 'Posts'
+    url = '/posts/'
+    weight = 20
+  [[menu.main]]
+    name = 'Tags'
+    url = '/tags/'
+    weight = 30
+
+# RSS/Atom feed
+[outputs]
+  home = ['HTML', 'RSS']
+  
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = 'application/rss+xml'
+    baseName = 'atom'

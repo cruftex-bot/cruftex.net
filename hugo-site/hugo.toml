@@ -1,7 +1,8 @@
 baseURL = 'http://cruftex.net'
+DefaultContentLanguage = "en"
 languageCode = 'en-us'
 title = 'cruftex.net'
-theme = 'terminal'
+theme = 'diary'
 uglyURLs = true
 
 # Pagination configuration
@@ -10,10 +11,11 @@ uglyURLs = true
 
 # Site parameters
 [params]
+  subtitle = "Java caching and performance"
   description = "Personal blog of Jens Wilke"
   author = "Jens Wilke"
-  github = "https://github.com/cruftex"
-  featured_image = "/image/cruftex-logo.png"
+  enableOpenGraph = true
+  enableTwitterCards = true
 
 # Permalinks configuration
 [permalinks]
@@ -30,19 +32,18 @@ uglyURLs = true
     noClasses = false
 
 # Menu configuration
-[menu]
-  [[menu.main]]
-    name = 'About'
-    url = '/about.html'
-    weight = 10
-  [[menu.main]]
-    name = 'Posts'
-    url = '/posts.html'
-    weight = 20
-  [[menu.main]]
-    name = 'Tags'
-    url = '/tags.html'
-    weight = 30
+[[menu.main]]
+  url = "/posts.html"
+  name = "Archive"
+  weight = 1
+[[menu.main]]
+  url = "/tags.html"
+  name = "Tags"
+  weight = 2
+[[menu.main]]
+  url = "/about.html"
+  name = "About"
+  weight = 3
 
 # RSS/Atom feed
 [outputs]

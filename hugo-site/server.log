@@ -1,0 +1,22 @@
+Watching for changes in /workspace/project/cruftex.net/hugo-site/{archetypes,assets,content,data,i18n,layouts,static,themes}
+Watching for config changes in /workspace/project/cruftex.net/hugo-site/hugo.toml
+Start building sites … 
+hugo v0.139.0-dacef0df92a9a20072b4eaa42003e1a63ace8f41+extended linux/amd64 BuildDate=2024-11-18T16:17:45Z VendorInfo=gohugoio
+
+
+                   | EN   
+-------------------+------
+  Pages            |  70  
+  Paginator pages  |   4  
+  Non-page files   | 279  
+  Static files     |  12  
+  Processed images |   0  
+  Aliases          |  29  
+  Cleaned          |   0  
+
+Built in 288 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at https://work-1-nwoniphisyysskps.prod-runtime.all-hands.dev:12000/ (bind address 0.0.0.0) 
+Press Ctrl+C to stop

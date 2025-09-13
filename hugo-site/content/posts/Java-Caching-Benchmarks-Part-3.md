@@ -123,9 +123,9 @@ Such code would be impacted by the operating system scheduler.
 
 Benchmark source file: [ZipfianSequenceLoadingBenchmark.java](https://github.com/cache2k/cache2k-benchmark/blob/e4cd7a8c491bf275545b3003932c2eebb69606e9/jmh-suite/src/main/java/org/cache2k/benchmark/jmh/suite/eviction/symmetrical/ZipfianSequenceLoadingBenchmark.java).
 
-![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10](ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
 
 CPU profiling with a cache size of 1M and Zipfian factor 10, 4 threads and cache2k shows that 35% of the CPU cycles are 
 spent in black hole. If this time is used for loader, hit rates of cache implementations would improve. As explained before, 
@@ -135,9 +135,9 @@ competitor would be wrong (cache2k vs. Caffeine with 100K entries), since the be
 
 Let's look at the achieved hit rates: 
 
-![ZipfianSequenceLoadingBenchmark, effective hit rate by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, effective hit rate by cache size at 4 threads and Zipfian factor 10](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-bySize-4x10.dat) is available. 
 
 Caffeine and cache2k have significantly higher hit rates by about 4%, cache2k is slightly better than Caffeine by about 0.15%.
 
@@ -145,9 +145,9 @@ Another benchmark is analyzed with different number of threads and CPU cores. As
 
 Let's look at the results for one, two and four cores:
 
-![ZipfianSequenceLoadingBenchmark, operations per second by thread count with cache size 1M and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, operations per second by thread count with cache size 1M and Zipfian factor 10](ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-byThread-1Mx10.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmark-byThread-1Mx10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmark-byThread-1Mx10.dat) is available. 
 
 EHCache2 does not scale well in this scenario with the additional cores, which is probably caused due to additional locking overhead in the blocking read through configuration. 
 
@@ -155,23 +155,23 @@ Caffeine has low performance with one or two cores but better performance with f
 
 By varying the size of Zipfian distribution we can yield different hit rates. Below chart shows the performance with different Zipfian factors:
 
-![ZipfianSequenceLoadingBenchmark, operations per second by Zipfian factor with cache size 1M at 4 threads](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, operations per second by Zipfian factor with cache size 1M at 4 threads](ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmark-byFactor-1M-4.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmark-byFactor-1M-4-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmark-byFactor-1M-4.dat) is available. 
 
 The corresponding effective hit rates per cache are:
 
-![ZipfianSequenceLoadingBenchmark, effective hit rate by Zipfian factor with cache size 1M at 4 threads](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, effective hit rate by Zipfian factor with cache size 1M at 4 threads](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkEffectiveHitrate-byFactor-1M-4.dat) is available. 
 
 cache2k is optimized in such a way that there will be minimal overhead at high hit rates. Few processes are delayed by maximum possible time until eviction. That's why the relative advantage of cache2k becomes lesser for lower hit rates.
  
 We also analyazed another benchmark run with the new G1 collector. Let's look at the first statistic with different collector implementation:
  
-![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10 and G1 collector](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, operations per second by cache size at 4 threads and Zipfian factor 10 and G1 collector](ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle.svg)
 
-For the above graph [Alternative Image](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmark-bySize-4x10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmark-bySize-4x10.dat) is available. 
 
 With a cache size of around 1M entries cache2k highly profits from its low allocation rates. All other cache implementations have a higher allocation rate resulting in lower throughput. With cache size of 10M cache2k and Guava face higher loss because with this cache size these two cache implementations cause more work with G1 than other implementations. In the next benchmark, this impact becomes even more visible.
 
@@ -215,26 +215,26 @@ In this case a cache miss gets no extra penalty. As the effective hit rate is id
 implementations, the penalty would change the performance result by a constant factor. So in this benchmark, the performance 
 is solely determined by the sequence generator and the cache operations.
 
-![RandomSequenceBenchmark, operations per second by hit rate at 4 threads and 1M cache size](CMS/RandomSequenceBenchmark-byHitrate-4-1M-notitle.svg)
-For the above graph [Alternative Image](CMS/RandomSequenceBenchmark-byHitrate-4-1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmark-byHitrate-4-1M.dat) is available. 
+![RandomSequenceBenchmark, operations per second by hit rate at 4 threads and 1M cache size](RandomSequenceBenchmark-byHitrate-4-1M-notitle.svg)
+For the above graph [Alternative Image](RandomSequenceBenchmark-byHitrate-4-1M-notitle-print.svg) and [Raw Data](RandomSequenceBenchmark-byHitrate-4-1M.dat) is available. 
 
 Let's also verify if the effective hit rate is on the same level:
 
-![RandomSequenceBenchmark, effective hit rate by thread count at 4 threads and 1M cache size](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle.svg)
-For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M.dat) is available. 
+![RandomSequenceBenchmark, effective hit rate by thread count at 4 threads and 1M cache size](RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle.svg)
+For the above graph [Alternative Image](RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M-notitle-print.svg) and [Raw Data](RandomSequenceBenchmarkEffectiveHitrate-byHitrate-4-1M.dat) is available. 
 
 To see how the cache size impacts the performance, let's look at different cache sizes with constant thread count and hit rate:
 
-![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate](CMS/RandomSequenceBenchmark-bySize-4x50-notitle.svg)
-For the above graph there is an [Alternative Image](CMS/RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmark-bySize-4x50.dat) is available. 
+![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate](RandomSequenceBenchmark-bySize-4x50-notitle.svg)
+For the above graph there is an [Alternative Image](RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](RandomSequenceBenchmark-bySize-4x50.dat) is available. 
 
 As we can see, the performance of cache2k is similar to other cache implementations when the cache size is increased.
 
 We also analyzed a benchmark run with the new G1 garbage collector:
 
-![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate with G1 collector](G1/RandomSequenceBenchmark-bySize-4x50-notitle.svg)
+![RandomSequenceBenchmark, operations per second by cache size at 4 threads and 50 percent target hit rate with G1 collector](RandomSequenceBenchmark-bySize-4x50-notitle.svg)
 
-For the above graph [Alternative Image](G1/RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](G1/RandomSequenceBenchmark-bySize-4x50.dat) is available. 
+For the above graph [Alternative Image](RandomSequenceBenchmark-bySize-4x50-notitle-print.svg) and [Raw Data](RandomSequenceBenchmark-bySize-4x50.dat) is available. 
 
 With the new G1 collector all cache implementations show significantly reduced performance, when cache sizes are increased. 
 The implementations cache2k and the Google Guava cache have a even higher performance drop for G1. Doing CPU profiling 
@@ -267,9 +267,9 @@ Using the internal counters of cache2k, we can extract average number of entries
 This allows us to get an insight into  different eviction costs at different working
 conditions. Let's look at how different cache sizes affect the number scans:
 
-![RandomSequenceBenchmark, scan count by cache size at 4 threads and 80 percent target hit rate](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80-notitle.svg)
+![RandomSequenceBenchmark, scan count by cache size at 4 threads and 80 percent target hit rate](RandomSequenceBenchmarkScanCount-bySize-4x80-notitle.svg)
 
-For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkScanCount-bySize-4x80.dat) is available. 
+For the above graph [Alternative Image](RandomSequenceBenchmarkScanCount-bySize-4x80-notitle-print.svg) and [Raw Data](RandomSequenceBenchmarkScanCount-bySize-4x80.dat) is available. 
 
 The results are rather surprising. Scan counts are almost equal for same hit rates for any cache size. 
 Raw values for reference:
@@ -283,9 +283,9 @@ count does not increase significantly when the cache becomes bigger.
 
 For different hit rates the scan counts look like:
 
-![RandomSequenceBenchmark, scan count by hit rate at 4 threads and 1M cache size](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle.svg)
+![RandomSequenceBenchmark, scan count by hit rate at 4 threads and 1M cache size](RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle.svg)
 
-For the above graph [Alternative Image](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle-print.svg) and [Raw Data](CMS/RandomSequenceBenchmarkScanCount-byHitrate-4x1M.dat) is available. 
+For the above graph [Alternative Image](RandomSequenceBenchmarkScanCount-byHitrate-4x1M-notitle-print.svg) and [Raw Data](RandomSequenceBenchmarkScanCount-byHitrate-4x1M.dat) is available. 
 
 The scan count increases for higher hit rates because all the cache contents become 'hotter'. The amount of additional scanning 
 when hit rates become higher can be tuned by some internal parameters. As we can see with this benchmark, the tuning parameters are chosen in a way that additional scanning work in the eviction, does not outweigh the performance gains of the improved hit rate.
@@ -293,9 +293,9 @@ With high hit rates cache2k has still less overhead than other cache libraries.
 
 Finally, we will take a look at the scan counts for the first benchmark:
 
-![ZipfianSequenceLoadingBenchmark, scan count by cache size at 4 threads and Zipfian factor 10](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, scan count by cache size at 4 threads and Zipfian factor 10](ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkScanCount-bySize-4x10.dat) is available. 
 
 For a typical skewed access sequence the average scan count is very low. In tested scenarios it is
 below two. For realistic (non-random) access sequences, experiment shows that the scan count 
@@ -313,9 +313,9 @@ that the JVM reports at the end of the benchmark. This is a static measure and d
 account differences in usage when operations are ongoing. The *VmHWM* metric represents peak memory 
 consumption as reported by the operating system, thus it also includs dynamic effects like garbage collection.
 
-![ZipfianSequenceLoadingBenchmark, memory consumption with 10M cache size at 4 threads and Zipfian factor 5](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, memory consumption with 10M cache size at 4 threads and Zipfian factor 5](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle.svg)
 
-For the above graph [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-10M-5.dat) is available. 
 
 In the tested scenario cache2k has 11% higher static memory consumption then Caffeine. In this scenario 
 the payload data (keys and values) is only integer objects. With larger data sizes in practical applications, 
@@ -325,9 +325,9 @@ The peak memory consumption differs more drastically. Cache2k achieves a lower p
 low allocation rates which leads to less garbage collector activity. Depending on the cache utilization, cache size
 and hit rates, the total memory consumption will differ. Here is a rather extreme case example with the G1 collector:
 
-![ZipfianSequenceLoadingBenchmark, memory consumption with 1M cache size at 4 threads and Zipfian factor 20](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle.svg)
+![ZipfianSequenceLoadingBenchmark, memory consumption with 1M cache size at 4 threads and Zipfian factor 20](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle.svg)
 
-For the above graph [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5.dat) is available. 
+For the above graph [Alternative Image](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkStaticPeakMemory4-1M-5.dat) is available. 
 
 Interesting side note: Since cache eviction produces garbage, increasing the cache size could have a 
 dramatic effect on the peak memory consumption and can actually lower the amount of needed memory, as less garbage collector needs less breathing space. 

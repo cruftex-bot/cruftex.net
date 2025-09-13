@@ -39,8 +39,8 @@ based on an example benchmark. The benchmark and its setup is described at the e
 Continuing creating different benchmarks for caching libraries and improving [cache2k](https://cache2k.org), we discovered that important 
 information is missing. Let's look at a benchmark result:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, throughput in operations per second](G1/ZipfianSequenceLoadingBenchmark-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmark-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmark.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, throughput in operations per second](ZipfianSequenceLoadingBenchmark-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmark-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmark.dat) available. 
 
 The graph shows the throughput in operations per second for a capacity limit of 1M entries. The benchmark setup
 is described in more detail at the end of the article.
@@ -239,8 +239,8 @@ The values of the GC notification correspond to the values of the management bea
 
 Now its finally time for the first graph. Let's see how the metrics look like for the tested libraries:
 
-![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, used memory](CMS/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle.svg)
-For the graph above there is an [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10.dat) available. 
+![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, used memory](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10.dat) available. 
 
 As we can see *usedMem_fin* has low confidence. After another or more full GC runs the reported 
 memory becomes a little smaller with no variance, as we can see in *usedMem_settled*. Guava seems to be most memory efficient, 
@@ -250,8 +250,8 @@ some more investigations.
 
 Doing the same with the G1 garbage collector (VM option `-XX:+UseG1GC`) shows another picture:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, used memory](G1/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, used memory](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemoryUsed4-1M-10.dat) available. 
 
 The slight difference between *usedMem_fin* and *usedMem_settled* is gone. That means G1 is capable to collect garbage more reliable
 on the first full GC run. Looking on the *useMem_max* metric we have an indicator how the cache
@@ -288,13 +288,13 @@ See `man proc` for more details. The metric *VmHWM* isn't exposed by the usual l
 
 Let's take a look at the results for the CMS collector:
 
-![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, total memory](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle.svg)
-For the graph above there is an [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total.dat) available. 
+![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, total memory](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total.dat) available. 
 
 Again we also did a benchmark run with the G1 collector:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, total memory](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, total memory](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-total.dat) available. 
 
 We can see that the total memory reported by the JVM is more then the memory reported by the operating system. The 
 reason for this is, that the RSS metric is only reporting memory that is really used. The process may request more
@@ -310,19 +310,19 @@ The values for the used memory reported by the JVM after a full GC and the value
 To find out a possible cause, we can take a look at the allocation rate. This tells us how many objects (and garbage) a
  program is creating.
 
-![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, allocation rate](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-4-1M-10-notitle.svg)
-For the graph above there is an [Alternative Image](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-notitle-print.svg) and [Raw Data](CMS/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate.dat) available. 
+![ZipfianSequenceLoadingBenchmark with CMS collector, 4 threads, 1M cache entries, Zipfian factor 10, allocation rate](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-4-1M-10-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate.dat) available. 
 
 The result with the G1 collector:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, allocation rate](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-4-1M-10-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, allocation rate](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-4-1M-10-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRate.dat) available. 
 
 However looking at the absolute values does not makes sense, since the throughput is very different. We can normalize the allocation
  rate and calculate the allocated bytes per operation:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, normed allocation rate](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp-4-1M-10-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, normed allocation rate](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp-4-1M-10-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-allocRatePerOp.dat) available. 
 
 This graph is identical for the CMS and G1 collector.
 
@@ -348,13 +348,13 @@ The major findings are:
    
 Highlighting the last point, let's take a look on the best performers according to *usedMem_settled*:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, used heap memory, sorted by best performance](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, used heap memory, sorted by best performance](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-usedHeap-sorted.dat) available. 
 
 In contrast, here are the best performers according to *VmHWM*:
 
-![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, peak memory usage reported by the operating system (VmHWM), sorted by best performance](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted-notitle.svg)
-For the graph above there is an [Alternative Image](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted-notitle-print.svg) and [Raw Data](G1/ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted.dat) available. 
+![ZipfianSequenceLoadingBenchmark with G1 collector, 4 threads, 1M cache entries, Zipfian factor 10, peak memory usage reported by the operating system (VmHWM), sorted by best performance](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted-notitle.svg)
+For the graph above there is an [Alternative Image](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted-notitle-print.svg) and [Raw Data](ZipfianSequenceLoadingBenchmarkMemory4-1M-10-VmHWM-sorted.dat) available. 
 
 Going back to our initial motivation we found that [cache2k](https://cache2k.org) has superior throughput and is consuming 
 less real memory (according to *VmHWM* metric) then other cache products, for the tested benchmark scenario.
